@@ -1,4 +1,34 @@
 * {
   box-sizing: border-box;
   outline: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #1b1b1b;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 340px;
+  font-size: 3.3rem;
+  margin: 50px auto;
+  color: #cacaca;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+button {
+  all: unset;
+  font-size: 0.8rem;
+  padding: 20px;
+  background-color: #000;
+  cursor: pointer;
+  color: #cacaca;
+}
+
+h1 {
+  font-size: 4.3rem;
 }
