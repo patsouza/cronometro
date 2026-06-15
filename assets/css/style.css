@@ -18,17 +18,30 @@ body {
   color: #cacaca;
   padding: 20px;
   border-radius: 10px;
+  border: solid 1px #cacaca;
 }
 
 button {
   all: unset;
   font-size: 0.8rem;
+  font-weight: 600;
   padding: 20px;
-  background-color: #000;
   cursor: pointer;
-  color: #cacaca;
+  color: #1b1b1b;
+  border-radius: 5px;
 }
 
+.iniciar {
+    background-color: #97f59f;
+}
+
+.pausar {
+  background-color: #fcfa9b;
+}
+
+.zerar {
+  background-color: rgb(247, 143, 143);
+}
 h1 {
-  font-size: 4.3rem;
+  font-size: 3rem;
 }
