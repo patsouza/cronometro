@@ -1,8 +1,8 @@
 let timer = document.querySelector('.cronometro');
 let timerId = null;
-const iniciarBttn = document.querySelector('.iniciar');
-const pausarBttn = document.querySelector('.pausar');
-const zerarBttn = document.querySelector('.zerar');
+const iniciarBtn = document.querySelector('.iniciar');
+const pausarBtn = document.querySelector('.pausar');
+const zerarBtn = document.querySelector('.zerar');
 
 let segundos = 0;
 let minutos = 0;
@@ -15,8 +15,7 @@ const atualizarCronometro = () => {
   timer.innerHTML = `${horasFormatadas}:${minutosFormatados}:${segundosFormatados}`;
 }
 
-iniciarBttn.addEventListener("click", () => {
-  pararIntervalo()
+const iniciarCronometro = () => {
   timerId = setInterval(() => {
     segundos++;
 
@@ -33,14 +32,15 @@ iniciarBttn.addEventListener("click", () => {
     atualizarCronometro()
 
   }, 1000)
-});
+}
 
 const pararIntervalo = () => {
   clearInterval(timerId)
 }
-pausarBttn.addEventListener("click", pararIntervalo)
 
-zerarBttn.addEventListener("click", () => {
+iniciarBtn.addEventListener("click", iniciarCronometro);
+pausarBtn.addEventListener("click", pararIntervalo)
+zerarBtn.addEventListener("click", () => {
   pararIntervalo()
   segundos = 0;
   minutos = 0;
