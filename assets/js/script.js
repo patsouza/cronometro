@@ -5,7 +5,6 @@ const pausarBttn = document.querySelector('.pausar');
 const zerarBttn = document.querySelector('.zerar');
 
 // Iniciar timer
-let contador = 0;
 let segundos = 0;
 let minutos = 0;
 let horas = 0;
@@ -14,29 +13,34 @@ iniciarBttn.addEventListener("click", () => {
   clearInterval(timerId)
   timerId = setInterval(() => {
     segundos++;
-    segundos = String(segundos).padStart(2, '0');
-    minutos = String(minutos).padStart(2, '0');
-    horas = String(horas).padStart(2, '0');
-    
-    if (segundos === '59') {
-      segundos = '00';
+
+    if (segundos === 60) {
+      segundos = 0;
       minutos++
-      minutos = String(minutos).padStart(2, '0');
     }
 
-    if (minutos === '59') {
-      minutos = '00';
+    if (minutos === 60) {
+      minutos = 0;
       horas++
-      horas = String(horas).padStart(2, '0');
     }
-    
-    timer.innerHTML = `${horas}:${minutos}:${segundos}`;
+
+    atualizarCronometro()
+
   }, 1000)
 });
 
+const atualizarCronometro = () => {
+  const segundosFormatados = String(segundos).padStart(2, '0');
+  const minutosFormatados = String(minutos).padStart(2, '0');
+  const horasFormatadas = String(horas).padStart(2, '0');
+  timer.innerHTML = `${horasFormatadas}:${minutosFormatados}:${segundosFormatados}`;
+}
+
 zerarBttn.addEventListener("click", () => {
   clearInterval(timerId)
-  contador = 0;
+  segundos = 0;
+  minutos = 0;
+  horas = 0;
   timer.innerHTML = `00:00:00`
 });
 
